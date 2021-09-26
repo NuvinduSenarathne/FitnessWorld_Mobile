@@ -158,4 +158,8 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
         }
     }
 
+    public void ClickBack(View view){
+        NavDrawer.redirectActivity(this,Profile.class);
+    }
+
 }

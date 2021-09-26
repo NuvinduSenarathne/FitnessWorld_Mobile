@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/drawable/ic_menu.xml" value="0.2109375" />
         <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/activity_about_us.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/activity_app_inside.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/activity_bmi.xml" value="0.19479166666666667" />
@@ -18,7 +19,10 @@
         <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/fragment_home.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/fragment_profile.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/main_nav_drawer.xml" value="0.33" />
-        <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/main_toolbar.xml" value="0.35625" />
+        <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/main_toolbar.xml" value="0.22" />
+        <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/main_toolbar_app.xml" value="0.19479166666666667" />
+        <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/main_toolbar_app_bmi.xml" value="0.19479166666666667" />
+        <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/layout/main_toolbar_app_update_user.xml" value="0.19479166666666667" />
         <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/Mudi/Desktop/MAD/FitnessApp/app/src/main/res/menu/app_inside.xml" value="0.23802083333333332" />
       </map>

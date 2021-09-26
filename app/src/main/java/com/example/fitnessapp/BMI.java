@@ -65,6 +65,7 @@ public class BMI extends AppCompatActivity{
             }
         });
 
+
     }
 
     public void calculateBMI(View v) {
@@ -95,6 +96,10 @@ public class BMI extends AppCompatActivity{
 
         bmiLabel = "BMI Value: "+String.format("%.2f",bmi) + "\n\n" + "Category: "+bmiLabel;
         result.setText(bmiLabel);
+    }
+
+    public void ClickBack(View view){
+        NavDrawer.redirectActivity(this,NavDrawer.class);
     }
 
 
