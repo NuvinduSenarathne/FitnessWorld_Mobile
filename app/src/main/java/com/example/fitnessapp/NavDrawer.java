@@ -56,6 +56,11 @@ public class NavDrawer extends AppCompatActivity {
         redirectActivity(this,AboutUs.class);
     }
 
+    public void ClickBMI (View view){
+
+        redirectActivity(this,BMI.class);
+    }
+
     public void ClickLogOut (View view){
 
         logout(this);

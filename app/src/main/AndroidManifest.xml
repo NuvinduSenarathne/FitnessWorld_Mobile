@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ForgotPassword"
+            android:exported="true" />
+        <activity
+            android:name=".BMI"
+            android:exported="true" />
+        <activity
             android:name=".UpdateUser"
             android:exported="true" />
         <activity

@@ -39,7 +39,13 @@ import android.view.View;
         NavDrawer.redirectActivity(this,AboutUs.class);
     }
 
-    public void ClickLogOut(View view){
+     public void ClickBMI (View view){
+
+         NavDrawer.redirectActivity(this,BMI.class);
+     }
+
+
+     public void ClickLogOut(View view){
         NavDrawer.logout(this);
     }
 

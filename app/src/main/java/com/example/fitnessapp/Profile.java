@@ -123,6 +123,11 @@ public class Profile extends AppCompatActivity {
         NavDrawer.logout(this);
     }
 
+    public void ClickBMI (View view){
+
+        NavDrawer.redirectActivity(this,BMI.class);
+    }
+
     @Override
     protected void onPause() {
         super.onPause();

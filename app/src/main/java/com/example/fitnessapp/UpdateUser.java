@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,19 +34,13 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
     private Button upUser;
     private TextView banner;
     private EditText editTextFullName,editTextHeight,editTextWeight,editTextAge;
-    private RadioGroup genderRadio;
-    private RadioButton genderMaleButton;
-    private RadioButton genderFemaleButton;
-    private RadioButton genderButton;
-
-    String editTextGender;
 
     private FirebaseUser user;
     private DatabaseReference reference;
-    private DocumentReference documentReference;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private String userID;
+
+    String _FULLNAME,_AGE,_HEIGHT,_WEIGHT;
 
     private FirebaseAuth mAuth;
 
@@ -60,29 +56,13 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
         banner = (TextView) findViewById(R.id.banner);
         banner.setOnClickListener(this);
 
-        upUser = (Button) findViewById(R.id.updateUser);
-        upUser.setOnClickListener(this);
+//        upUser = (Button) findViewById(R.id.updateUser);
+//        upUser.setOnClickListener(this);
 
         editTextFullName = (EditText) findViewById(R.id.fullName);
         editTextHeight = (EditText) findViewById(R.id.height);
         editTextWeight = (EditText) findViewById(R.id.weight);
         editTextAge = (EditText) findViewById(R.id.age);
-
-        genderMaleButton = (RadioButton) findViewById(R.id.male);
-        genderFemaleButton = (RadioButton) findViewById(R.id.female);
-
-
-        genderRadio = (RadioGroup) findViewById(R.id.radioGroup);
-
-
-        genderRadio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkId) {
-                genderButton = findViewById(genderRadio.getCheckedRadioButtonId());
-                editTextGender = genderButton.getText().toString().trim();
-
-            }
-        });
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -94,23 +74,15 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
                 User userProfile = snapshot.getValue(User.class);
 
                 if(userProfile != null){
-                    String fullName = userProfile.fullName;
-                    String age = userProfile.age;
-                    String height = userProfile.height;
-                    String weight = userProfile.weight;
-                    String gender = userProfile.gender;
+                    _FULLNAME = userProfile.fullName;
+                    _AGE = userProfile.age;
+                    _HEIGHT = userProfile.height;
+                    _WEIGHT = userProfile.weight;
 
-                    editTextFullName.setText(fullName);
-                    editTextAge.setText(age);
-                    editTextHeight.setText(height);
-                    editTextWeight.setText(weight);
-
-                    if(gender == "Female"){
-                        genderFemaleButton.setChecked(true);
-                    }else{
-                        genderMaleButton.setChecked(true);
-                    }
-
+                    editTextFullName.setText(_FULLNAME);
+                    editTextAge.setText(_AGE);
+                    editTextHeight.setText(_HEIGHT);
+                    editTextWeight.setText(_WEIGHT);
 
                 }
             }
@@ -129,21 +101,61 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
             case R.id.banner:
                 startActivity(new Intent(this,Profile.class));
                 break;
-            case R.id.upUser:
-                updateUser();
-                break;
+//            case R.id.updateUser:
+//                updateUser();
+//                break;
         }
     }
 
 
-    private void updateUser() {
-        String fullname = editTextFullName.getText().toString().trim();
-        String age = editTextAge.getText().toString().trim();
-        String height = editTextHeight.getText().toString().trim();
-        String weight = editTextWeight.getText().toString().trim();
-        String gender = editTextGender;
 
-        final DocumentReference sDoc = db.collection("Users").document(userID);
+    public void updateUser(View view) {
+       if(isFullnameChanged()||isAgeChanged()||isWeightChanged()||isHeightChanged()){
+           Toast.makeText(UpdateUser.this, "Data has been updated. Press Again if you update multiple fields" ,Toast.LENGTH_LONG).show();
+       }else{
+           Toast.makeText(UpdateUser.this, "Error with Updating Data" ,Toast.LENGTH_LONG).show();
+       }
 
     }
+
+    private boolean isFullnameChanged(){
+        if(!_FULLNAME.equals(editTextFullName.getText().toString())){
+            reference.child(userID).child("fullName").setValue(editTextFullName.getText().toString());
+            _FULLNAME = editTextFullName.getText().toString();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private boolean isAgeChanged(){
+        if(!_AGE.equals(editTextAge.getText().toString())){
+            reference.child(userID).child("age").setValue(editTextAge.getText().toString());
+            _AGE = editTextAge.getText().toString();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private boolean isHeightChanged(){
+        if(!_HEIGHT.equals(editTextHeight.getText().toString())){
+            reference.child(userID).child("height").setValue(editTextHeight.getText().toString());
+            _HEIGHT = editTextHeight.getText().toString();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private boolean isWeightChanged(){
+        if(!_WEIGHT.equals(editTextWeight.getText().toString())){
+            reference.child(userID).child("weight").setValue(editTextWeight.getText().toString());
+            _WEIGHT = editTextWeight.getText().toString();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
