@@ -99,7 +99,7 @@ public class BMI extends AppCompatActivity{
     }
 
     public void ClickBack(View view){
-        NavDrawer.redirectActivity(this,NavDrawer.class);
+        NavDrawer.redirectActivity(this, Home.class);
     }
 
 
