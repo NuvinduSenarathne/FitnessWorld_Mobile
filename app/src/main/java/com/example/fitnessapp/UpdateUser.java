@@ -1,13 +1,18 @@
 package com.example.fitnessapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -44,6 +49,8 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
 
     private FirebaseAuth mAuth;
 
+    private ImageView editProfileImage;
+
 
 
     @Override
@@ -56,8 +63,7 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
         banner = (TextView) findViewById(R.id.banner);
         banner.setOnClickListener(this);
 
-//        upUser = (Button) findViewById(R.id.updateUser);
-//        upUser.setOnClickListener(this);
+        editProfileImage = findViewById(R.id.editprofilepic);
 
         editTextFullName = (EditText) findViewById(R.id.fullName);
         editTextHeight = (EditText) findViewById(R.id.height);
@@ -93,6 +99,26 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
             }
         });
 
+        editProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Open Gallery
+                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(openGalleryIntent,1000);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000){
+            if(resultCode == Activity.RESULT_OK){
+                Uri imageUri = data.getData();
+                editProfileImage.setImageURI(imageUri);
+            }
+        }
     }
 
     @Override
