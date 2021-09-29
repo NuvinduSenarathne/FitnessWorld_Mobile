@@ -33,6 +33,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import io.grpc.Context;
 
 public class UpdateUser extends AppCompatActivity implements View.OnClickListener{
 
@@ -51,6 +57,8 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
 
     private ImageView editProfileImage;
 
+    StorageReference storageReference;
+
 
 
     @Override
@@ -62,6 +70,16 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
 
         banner = (TextView) findViewById(R.id.banner);
         banner.setOnClickListener(this);
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+        StorageReference profileRef = storageReference.child("users/"+mAuth.getCurrentUser().getUid()+"/profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(editProfileImage);
+            }
+        });
 
         editProfileImage = findViewById(R.id.editprofilepic);
 
@@ -117,8 +135,33 @@ public class UpdateUser extends AppCompatActivity implements View.OnClickListene
             if(resultCode == Activity.RESULT_OK){
                 Uri imageUri = data.getData();
                 editProfileImage.setImageURI(imageUri);
+
+                uploadImageToFirebase(imageUri);
             }
         }
+    }
+
+    private void uploadImageToFirebase(Uri imgUri) {
+        //Upload image to firebase storage
+        StorageReference fileRef = storageReference.child("users/"+mAuth.getCurrentUser().getUid()+"/profile.jpg");
+        fileRef.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(UpdateUser.this,"Image Uploaded",Toast.LENGTH_LONG).show();
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Picasso.get().load(uri).into(editProfileImage);
+                    }
+                });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(UpdateUser.this,"Image did not upload",Toast.LENGTH_LONG).show();
+
+            }
+        });
     }
 
     @Override
