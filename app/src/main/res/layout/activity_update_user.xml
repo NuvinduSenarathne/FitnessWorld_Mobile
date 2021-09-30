@@ -29,7 +29,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/editprofilepic"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_acc"/>
+
+
+        <EditText
         android:id="@+id/fullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
