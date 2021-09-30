@@ -11,6 +11,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".CreatePost"
+            android:exported="true" />
+        <activity
+            android:name=".MyPosts"
+            android:exported="true" />
+        <activity
+            android:name=".HealthCalculator"
+            android:exported="true" />
+        <activity
+            android:name=".Me"
+            android:exported="true" />
+        <activity
+            android:name=".Food"
+            android:exported="true" />
+        <activity
+            android:name=".Workout"
+            android:exported="true" />
+        <activity
+            android:name=".Home"
+            android:exported="true" />
+        <activity
             android:name=".ForgotPassword"
             android:exported="true" />
         <activity
