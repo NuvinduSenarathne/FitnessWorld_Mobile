@@ -126,7 +126,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<NewsfeedModel, MainAdap
             username = (TextView)itemView.findViewById(R.id.username);
             description = (TextView)itemView.findViewById(R.id.description);
             postImage = (ImageView)itemView.findViewById(R.id.postImage);
-            btnLike = (ImageView) itemView.findViewById(R.id.btnLike);
+            btnLike = (ImageView)itemView.findViewById(R.id.btnLike);
             likeTxt = (TextView)itemView.findViewById(R.id.likeTxt);
 
         }
