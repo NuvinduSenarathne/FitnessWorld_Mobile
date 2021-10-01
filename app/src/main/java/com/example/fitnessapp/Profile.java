@@ -135,10 +135,10 @@ public class Profile extends AppCompatActivity {
     }
 
     public void ClickHome (View view){
-        NavDrawer.redirectActivity(this,NavDrawer.class);
+        NavDrawer.redirectActivity(this,Home.class);
     }
 
-    public void ClickProfile (View view){
+    public void ClickMyProfile (View view){
         NavDrawer.redirectActivity(this,Profile.class);
     }
 

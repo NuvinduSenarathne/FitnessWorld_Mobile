@@ -144,7 +144,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<NewsfeedModel, MainAdap
                     } else  {
                         int likeCount = (int)snapshot.child(postkey).getChildrenCount();
                         likeTxt.setText(likeCount + " likes");
-                        btnLike.setImageResource(R.drawable.ic_favorite);
+                        btnLike.setImageResource(R.drawable.ic_favourite);
                     }
                 }
 
