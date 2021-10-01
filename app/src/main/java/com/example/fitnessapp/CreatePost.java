@@ -27,6 +27,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
@@ -99,15 +100,31 @@ public class CreatePost extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String descript = description.getText().toString();
-                if(isImageAdded != false && descript!=null) {
+                if(isImageAdded != false && descript.length()>0 && descript.length()<=150) {
                     uploadImage(descript);
+                } else {
+
+                    if(isImageAdded == false) {
+                        Toast.makeText(CreatePost.this, "Please Add An Image!" ,Toast.LENGTH_LONG).show();
+                    }
+
+                    if(descript.length()==0) {
+                        description.setError("Description is required");
+                        description.requestFocus();
+                    }
+
+                    if(descript.length()>150) {
+                        description.setError("Letter limit is Exceeded");
+                        description.requestFocus();
+                    }
+
                 }
             }
         });
 
     }
 
-    private void uploadImage(String name) {
+    private void uploadImage(String description) {
         textViewProgress.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.VISIBLE);
 
@@ -120,9 +137,10 @@ public class CreatePost extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         HashMap hashMap= new HashMap();
-                        hashMap.put("description", name);
+                        hashMap.put("description", description);
                         hashMap.put("postImage", uri.toString());
                         hashMap.put("username", fullName);
+                        hashMap.put("userID", userID);
                         databaseReference.child(key).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {

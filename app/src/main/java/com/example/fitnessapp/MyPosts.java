@@ -25,7 +25,7 @@ public class MyPosts extends AppCompatActivity {
     PostAdapter postAdapter;
     private FirebaseUser user;
     private DatabaseReference reference;
-    private String userID, fullName = "";
+    private String userID, fullName;
     String userName = "Muditha Wishwanath";
 
     @Override
@@ -40,25 +40,7 @@ public class MyPosts extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
 
-        //Get User Information
-        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User userProfile = snapshot.getValue(User.class);
-
-                if(userProfile != null){
-                    fullName = userProfile.fullName;
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MyPosts.this, "Something Wrong Happend!" ,Toast.LENGTH_LONG).show();
-            }
-
-        });
-
-        txtSearch(userName);
+        txtSearch(userID);
 
     }
 
@@ -66,7 +48,7 @@ public class MyPosts extends AppCompatActivity {
 
         FirebaseRecyclerOptions<NewsfeedModel> options =
                 new FirebaseRecyclerOptions.Builder<NewsfeedModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("newsfeed").orderByChild("username").startAt(str).endAt(str+"~"), NewsfeedModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("newsfeed").orderByChild("userID").startAt(str).endAt(str+"~"), NewsfeedModel.class)
                         .build();
 
         postAdapter = new PostAdapter(options);

@@ -52,7 +52,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/rounded"
-            android:paddingLeft="20dp"/>
+            android:paddingLeft="20dp"
+            android:ems="10"
+            android:inputType="numberDecimal" />
 
         <TextView
             android:layout_width="match_parent"
@@ -67,7 +69,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/rounded"
-            android:paddingLeft="20dp"/>
+            android:paddingLeft="20dp"
+            android:ems="10"
+            android:inputType="numberDecimal"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -82,7 +86,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/rounded"
-            android:paddingLeft="20dp"/>
+            android:paddingLeft="20dp"
+            android:ems="10"
+            android:inputType="numberDecimal"/>
 
         <LinearLayout
             android:id="@+id/displayHealthRec"
