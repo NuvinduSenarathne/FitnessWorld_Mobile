@@ -28,7 +28,7 @@ import android.view.View;
     }
 
     public void ClickHome (View view){
-        NavDrawer.redirectActivity(this,NavDrawer.class);
+        NavDrawer.redirectActivity(this,Home.class);
     }
 
     public void ClickProfile (View view){

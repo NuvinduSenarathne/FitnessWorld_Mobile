@@ -114,6 +114,7 @@
             android:layout_weight="1"
             android:text="My Profile"
             android:textStyle="bold"
+            android:onClick="ClickMyProfile"
             android:textSize="18sp"
             android:padding="12dp"
             android:layout_marginStart="16dp" />
