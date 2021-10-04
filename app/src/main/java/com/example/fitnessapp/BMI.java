@@ -23,6 +23,8 @@ public class BMI extends AppCompatActivity{
     private EditText height;
     private EditText weight;
 
+    private Button calBmi;
+
     private TextView result;
 
     private FirebaseUser user;
@@ -43,6 +45,15 @@ public class BMI extends AppCompatActivity{
         height = (EditText) findViewById(R.id.height);
         weight = (EditText) findViewById(R.id.weight);
         result = (TextView) findViewById(R.id.result);
+        calBmi = (Button) findViewById(R.id.calBmi);
+
+        calBmi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                float bmival = Calculations.calculateBMI(_HEIGHT,_WEIGHT);
+                displayBMI(bmival);
+            }
+        });
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -68,18 +79,6 @@ public class BMI extends AppCompatActivity{
 
     }
 
-    public void calculateBMI(View v) {
-        String heightStr = height.getText().toString();
-        String weightStr = weight.getText().toString();
-
-
-            float heightValue = Float.parseFloat(heightStr) / 100;
-            float weightValue = Float.parseFloat(weightStr);
-
-            float bmi = weightValue / (heightValue * heightValue);
-            displayBMI(bmi);
-
-    }
 
     private void displayBMI(float bmi) {
         String bmiLabel = "";
@@ -96,6 +95,8 @@ public class BMI extends AppCompatActivity{
 
         bmiLabel = "BMI Value: "+String.format("%.2f",bmi) + "\n\n" + "Category: "+bmiLabel;
         result.setText(bmiLabel);
+
+
     }
 
     public void ClickBack(View view){
