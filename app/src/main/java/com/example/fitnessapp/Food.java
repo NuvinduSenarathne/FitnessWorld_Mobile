@@ -74,6 +74,36 @@ public class Food extends AppCompatActivity {
         }
     }
 
+    public void ClickHome (View view){ redirectActivity(this, Home.class); }
+
+    public void ClickWorkout (View view){
+        redirectActivity(this, Workout.class);
+    }
+
+    public void ClickFood (View view){
+        recreate();
+    }
+
+    public void ClickMyProfile (View view){
+        redirectActivity(this, Profile.class);
+    }
+
+    public void ClickMyPosts (View view){
+        redirectActivity(this, MyPosts.class);
+    }
+
+    public void ClickBMI (View view){
+        redirectActivity(this, BMI.class);
+    }
+
+    public void ClickHealthCal (View view){
+        redirectActivity(this, HealthCalculator.class);
+    }
+
+    public void ClickAboutUs (View view){
+        redirectActivity(this, AboutUs.class);
+    }
+
     public void ClickLogOut(View view){
         NavDrawer.logout(this);
     }
@@ -84,7 +114,7 @@ public class Food extends AppCompatActivity {
         NavDrawer.closeDrawer(drawerLayout);
     }
 
-    public static void redirectActivity(Activity activity, Class aClass) {
+    public static void redirectActivity(Activity activity,Class aClass) {
         Intent intent = new Intent(activity,aClass);
 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

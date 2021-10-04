@@ -42,24 +42,6 @@ public class NavDrawer extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
-    public void ClickProfile (View view){
-        redirectActivity(this,Profile.class);
-    }
-
-    public void ClickHome(View view){
-
-        recreate();
-    }
-
-    public void ClickAboutUs (View view){
-
-        redirectActivity(this,AboutUs.class);
-    }
-
-    public void ClickBMI (View view){
-
-        redirectActivity(this,BMI.class);
-    }
 
     public void ClickLogOut (View view){
 

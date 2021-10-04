@@ -66,7 +66,7 @@ public class PostAdapter extends FirebaseRecyclerAdapter<NewsfeedModel, PostAdap
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(holder.userImage);
+                Picasso.get().load(uri).placeholder(R.drawable.user).error(R.drawable.user).into(holder.userImage);
             }
         });
 
