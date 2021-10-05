@@ -65,7 +65,7 @@
         android:textColor="#ffffff"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:onClick="calculateBMI" />
+            />
 
     <TextView
         android:id="@+id/result"
