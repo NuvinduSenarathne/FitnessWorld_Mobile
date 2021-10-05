@@ -4,13 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable-v24/selector.xml" value="0.2703125" />
+        <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/circle.xml" value="0.23378378378378378" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/descript_rounded.xml" value="0.23378378378378378" />
+        <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/ic_btncircle.xml" value="0.23378378378378378" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/ic_comment.xml" value="0.2703125" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/ic_delete.xml" value="0.1265765765765766" />
+        <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/ic_favourite.xml" value="0.23378378378378378" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/ic_image.xml" value="0.23378378378378378" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/ic_thumbup.xml" value="0.2703125" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/rounded.xml" value="0.23378378378378378" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/drawable/selector.xml" value="0.2703125" />
+        <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/activity_comment.xml" value="0.21981981981981982" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/activity_create_post.xml" value="0.21981981981981982" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/activity_food.xml" value="0.25416666666666665" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/activity_health_calculator.xml" value="0.21981981981981982" />
@@ -21,7 +25,8 @@
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/activity_nav_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/activity_profile.xml" value="0.21981981981981982" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/activity_workout.xml" value="0.25416666666666665" />
-        <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/comment_popup.xml" value="0.21981981981981982" />
+        <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/comment_item.xml" value="0.21981981981981982" />
+        <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/comment_popup.xml" value="0.264" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/main_item.xml" value="0.264" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/main_nav_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/SSD_Storage/AndroidProjects/mad-application/app/src/main/res/layout/main_toolbar.xml" value="0.25416666666666665" />

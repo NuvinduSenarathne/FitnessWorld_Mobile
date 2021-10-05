@@ -28,24 +28,39 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="394dp"
-        android:layout_height="390dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/recyclerView_CMNT"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="0dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="54dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"/>
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_CMNT"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/addcomment_CMNT"
+            android:layout_width="310dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded"
+            android:hint="@string/commentstype"
+            android:paddingLeft="20dp"/>
+
+        <Button
+            android:id="@+id/send_CMNT"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/ic_btncircle" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
